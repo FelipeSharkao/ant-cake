@@ -1,4 +1,4 @@
-from build import app
+from generated import app
 
 if __name__ == '__main__':
   app.run()
