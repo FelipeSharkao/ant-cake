@@ -1,9 +1,16 @@
 #!/bin/bash
 
-ls $(yarn global bin) -l | grep concurrently > /dev/null
-[ $? -eq 1 ] && yarn global add concurrently
+path=$(yarn global bin)
 
-coco="pipenv run coconut src generated --target 3.8 -lkw --mypy --strict"
-app="pipenv run python app.py"
+ls "$path" -l | grep nodemon > /dev/null
+[ $? -eq 1 ] && yarn global add nodemon
 
-$(yarn global bin)/concurrently -skn coconut,app "$coco" "$app"
+prepend() {
+  echo "while read line; do echo \"[$1] \$line\"; done"
+}
+
+coco="pipenv run coconut src generated --target 3.8 -lk --mypy --strict"
+coco+=" | $(prepend coco)"
+app="FLASK_ENV=development pipenv run flask run --no-reload | $(prepend app)"
+
+$path/nodemon -x "$coco && $app" -e py,coco,json,yaml --ignore generated
