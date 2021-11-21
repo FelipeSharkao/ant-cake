@@ -7,10 +7,12 @@ name = "pypi"
 strawberry-graphql = "*"
 flask = "*"
 pyjwt = "*"
+pymongo = "*"
+pydantic = "*"
 
 [dev-packages]
-coconut = {extras = ["watch"], version = "*"}
 mypy = "*"
+pymongo-stubs = "*"
 
 [requires]
 python_version = "3.9"

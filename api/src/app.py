@@ -1,8 +1,6 @@
 from flask import Flask
+from gql.schema import schema
 from strawberry.flask.views import GraphQLView
-
-from .schema import schema
-
 
 app = Flask(__name__)
 app.add_url_rule('/graphql',
