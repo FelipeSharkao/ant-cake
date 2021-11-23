@@ -4,11 +4,12 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-strawberry-graphql = "*"
+beanie = "*"
 flask = "*"
-pyjwt = "*"
-pymongo = "*"
 pydantic = "*"
+pyjwt = "*"
+python-dotenv = "*"
+strawberry-graphql = '*'
 
 [dev-packages]
 mypy = "*"
