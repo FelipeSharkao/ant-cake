@@ -5,11 +5,12 @@ name = "pypi"
 
 [packages]
 beanie = "*"
-flask = "*"
+fastapi = "*"
 pydantic = "*"
 pyjwt = "*"
 python-dotenv = "*"
-strawberry-graphql = '*'
+strawberry-graphql = {extras = ["fastapi"], version = "*"}
+uvicorn = {extras = ["standard"], version = "*"}
 
 [dev-packages]
 mypy = "*"
