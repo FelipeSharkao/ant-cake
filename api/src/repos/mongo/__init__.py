@@ -12,5 +12,5 @@ client: Optional[AsyncIOMotorClient] = None
 async def setup() -> None:
   global client
   if client is None:
-    client = AsyncIOMotorClient(Mongo.URI)
-    await init_beanie(database=client[Mongo.DB_NAME], document_models=[UserDocument])
+    client = _client = AsyncIOMotorClient(Mongo.URI)
+    await init_beanie(database=_client[Mongo.DB_NAME], document_models=[UserDocument])

@@ -6,12 +6,9 @@ pwd=$(pwd)
 ls "$path" -l | grep nodemon > /dev/null
 [ $? -eq 1 ] && yarn global add nodemon
 
+ls "$path" -l | grep pyright > /dev/null
+[ $? -eq 1 ] && yarn global add pyright
 
 cd "$(dirname "$0")/src"
-
-mypy="pipenv run mypy --strict app.py"
-dev="pipenv run uvicorn app:app"
-
-$path/nodemon -x "$mypy && $dev" -e py
-
+$path/nodemon -x "pyright && pipenv run uvicorn app:app" -e py
 cd "$pwd"

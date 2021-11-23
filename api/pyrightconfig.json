@@ -1,0 +1,7 @@
+{
+  "pythonVersion": "3.9",
+  "include": ["src"],
+  "executionEnvironments": [
+    {"root": "src"}
+  ]
+}
