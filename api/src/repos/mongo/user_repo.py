@@ -1,9 +1,7 @@
 from beanie import Document
+from models.contracts import UserContract
 
-
-class UserDocument(Document):
-  name: str
-  email: str
+class UserDocument(Document, UserContract):
   password: str
 
 
